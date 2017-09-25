@@ -1,0 +1,20 @@
+{
+  "name": "asharproject",
+  "version": "1.0.0",
+  "description": "final project for junior phase ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsharDweedar/junior-phase-project.git"
+  },
+  "author": "ashar dweedar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AsharDweedar/junior-phase-project/issues"
+  },
+  "homepage": "https://github.com/AsharDweedar/junior-phase-project#readme"
+}
