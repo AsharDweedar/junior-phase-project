@@ -29,14 +29,14 @@ Once the project moves into development, the press release can be used as a touc
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 -->
-**Summary** `<addr>`
+**Summary** <addr>
 * this TODO-list App is built to allow you access your TODO list from any place at any time .
 
 <!--
 ## Problem ##
   > Describe the problem your product solves.
 -->
-**Problem**`<addr>`
+**Problem**<hr>
 imagine your self writing all the important tasks you need TODO at a piece of paper and you accedently loose it , get's wet or you might save it on a labtop that you don't always carry with you ..
 **solution is __TODO-list App__** 
 wich will give you access to your tasks no matter what , just sign in and find a list of all tasks you need TODO , just in aclick ... _all your tasks are save in the cloud_ ..
