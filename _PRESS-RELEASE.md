@@ -19,40 +19,45 @@ Once the project moves into development, the press release can be used as a touc
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
 -->
-#to do list
+#to do list#
 <!--
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 -->
-###manage your time .. manage your life
+###manage your time .. manage your life##
 <!--
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 -->
-**Summary**
-this TODO-list App is built to allow you access your TODO list from any place at any time .
+**Summary** `<addr>`
+* this TODO-list App is built to allow you access your TODO list from any place at any time .
 
 <!--
 ## Problem ##
   > Describe the problem your product solves.
 -->
-**Problem**
+**Problem**`<addr>`
 imagine your self writing all the important tasks you need TODO at a piece of paper and you accedently loose it , get's wet or you might save it on a labtop that you don't always carry with you ..
-**solution is ##TODO-list App##** wich will give you access to your tasks no matter what , just sign in and find a list of all tasks you need TODO , just in aclick ... _all your tasks are save in the cloud_ ..
+**solution is __TODO-list App__** 
+wich will give you access to your tasks no matter what , just sign in and find a list of all tasks you need TODO , just in aclick ... _all your tasks are save in the cloud_ ..
+<!--
 ## Solution ##
   > Describe how your product elegantly solves the problem.
-
-
+-->
+<!--
 ## Quote from You ##
   > A quote from a spokesperson in your company.
-
+-->
 <!--
 ## How to Get Started ##
   > Describe how easy it is to get started.
 -->
 with only the need to sign in .. visit our App main page and sign up to enjoy all futures we provide ..
+<!--
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+-->
+
 <!--
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
