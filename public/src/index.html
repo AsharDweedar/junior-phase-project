@@ -65,7 +65,10 @@
                           type: 'GET' ,
                           success : (data)=>{
                             console.log('get tasks sent, first task is :', data[0]);
-                            ReactDOM.render(<Taskslist list={data.slice(data.length-10)}/>, document.getElementById('container'));
+                            if (data.length > 10) {
+                                data = data.slice(data.length-10);
+                            }
+                            ReactDOM.render(<Taskslist list={data}/>, document.getElementById('container'));
                           },
                           error : (err)=>{console.log('get tasks failed')}
                         })
