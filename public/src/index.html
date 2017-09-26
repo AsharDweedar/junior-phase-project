@@ -38,17 +38,20 @@
       },
         render : () => {
           return (<div>
-            <h1>click to get you tasks</h1>        
-            <button onClick={()=>{
-          $.ajax({
-            url : 'http://127.0.0.1:3000/tasks',
-            type: 'GET' ,
-            success : ()=>{console.log('get tasks sent')},
-            error : ()=>{console.log('get tasks failed')}
-          })
-        }}>get tasks</button>
-        <Tasks />
-                  </div>
+                    <h1>click to get you tasks</h1>        
+                    <button onClick={()=>{
+                        $.ajax({
+                          url : 'http://127.0.0.1:3000/tasks',
+                          type: 'GET' ,
+                          success : (data)=>{
+                            console.log('get tasks sent, first task is :', data[0]);
+                            ReactDOM.render(<Taskslist list={data}/>, document.getElementById('container'));
+                          },
+                          error : (err)=>{console.log('get tasks failed')}
+                        })
+                      }}>get tasks</button>
+                    <Tasks />
+                    </div>
                   )
                 }
     })
@@ -57,33 +60,51 @@
     var Tasks = React.createClass({
             render : () => {
               return (
-                              <div>                              
-                                <input type="text" id="name" placeholder="name" />
-                                <input type="text" id="task" placeholder="to do !!"/>
-                                <button onClick={() => {
-                                      var name = $('#name').value();
-                                      var task = $('#task').value();
+                    <div>                              
+                      <input type="text" id="name" placeholder="name" />
+                      <input type="text" id="task" placeholder="to do !!"/>
+                      <button onClick={() => {
+                                      var name = $('#name').val();
+                                      var task = $('#task').val();
                             
                                       $.ajax({
                                         type : 'POST',
-                                        url : 'http://localhost:3000/users',
-                                        data : JSON.stringify({name: name , task: task}),
+                                        url : 'http://localhost:3000/tasks',
+                                        data : {name: name , task: task},
                                         success : function(data) {
-                                          console.log('sent post users')
+                                          console.log('sent post task');
+                                          
                                         },
-                                        error : () => {console.log('error sending post users')}
+                                        error : () => {console.log('error sending post task')}
                                       })
                                     }
                                   }
-                                  >
-                                  post
-                                  </button>
-                                  </div>)
+                      >
+                      post
+                      </button>
+                      <div id="container" >
+                      </div>
+                    </div>)
                 
               }
           })
 
-
+    var Taskslist = React.createClass({
+            constructore : (props) =>{
+                Super(props)
+                console.log(props.list)
+              },
+            bindings : {
+              list : '='
+            },
+            render : () => {
+              return (
+                    <div>                              
+                      <h1>name: </h1>
+                    </div>)
+                
+              }
+          })
 
     ReactDOM.render(<App />, document.getElementById('App'));
    </script>
