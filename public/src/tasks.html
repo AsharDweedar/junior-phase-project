@@ -29,14 +29,14 @@
         constructor() {
           super();
         }
-        SignIn () {
+        postMe () {
           var name = $('#name').value();
-          var pass = $('#pass').value();
+          var task = $('#task').value();
 
           $.ajax({
             type : 'POST',
             url : 'http://localhost:3000/users',
-            data : JSON.stringify({name: name , pass: pass}),
+            data : JSON.stringify({name: name , task: task}),
             success : function(data) {
               console.log('sent post users')
             },
@@ -46,11 +46,11 @@
         render () {
           return `
             <div title="navigator" >
-              <button> tasks</button>         
+              <button> tasks </button>         
               </div>
               <input type="text" id="name">
-              <input type="password" id="pass" >
-              <button onclick={SignIn}>sign in</button>
+              <input type="text" id="task" >
+              <button onclick={postMe}>sign in</button>
             `
           };
   }

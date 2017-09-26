@@ -5,31 +5,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <!-- my javascript file -->
-    <script type="text/javascript" src="./index.js"></script>
+    <!-- my javascript file 
+    <script type="text/javascript" src="./index.js"></script>-->
 
     <!--react -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script> -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
+    <!-- jquery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <style type="text/css">
+      body {
+        margin : 250px;
+      }
+      input , button {
+        display : block;
+        margin: 10px;
+      }
+    </style>
   </head>
   <body>
     <div id="App">
       <App />
     </div>
-    <!-- 
-  var HelloWorld = React.createClass({
-        render: function() {
-            return <div>
-            <h1>Hello World</h1>
-            <p>This is some text</p>
-        </div>
-        }
-    });
-    ReactDOM.render(<HelloWorld />, document.body);
-   --> 
+
     <script type="text/babel">
       
   var App = React.createClass({
@@ -41,16 +41,50 @@
             <h1>click to get you tasks</h1>        
             <button onClick={()=>{
           $.ajax({
-            url : 'http://localhost:3000/tasks',
+            url : 'http://127.0.0.1:3000/tasks',
             type: 'GET' ,
             success : ()=>{console.log('get tasks sent')},
             error : ()=>{console.log('get tasks failed')}
           })
         }}>get tasks</button>
+        <Tasks />
                   </div>
                   )
                 }
     })
+
+
+    var Tasks = React.createClass({
+            render : () => {
+              return (
+                              <div>                              
+                                <input type="text" id="name" placeholder="name" />
+                                <input type="text" id="task" placeholder="to do !!"/>
+                                <button onClick={() => {
+                                      var name = $('#name').value();
+                                      var task = $('#task').value();
+                            
+                                      $.ajax({
+                                        type : 'POST',
+                                        url : 'http://localhost:3000/users',
+                                        data : JSON.stringify({name: name , task: task}),
+                                        success : function(data) {
+                                          console.log('sent post users')
+                                        },
+                                        error : () => {console.log('error sending post users')}
+                                      })
+                                    }
+                                  }
+                                  >
+                                  post
+                                  </button>
+                                  </div>)
+                
+              }
+          })
+
+
+
     ReactDOM.render(<App />, document.getElementById('App'));
    </script>
 
