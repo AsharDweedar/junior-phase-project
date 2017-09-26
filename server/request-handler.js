@@ -29,7 +29,7 @@ exports.getTasks = function (req, res) {
        if (err) {
         console.log('error inside finding tasks !!');
        } else {
-        console.log(data)
+        console.log("success  fetching tasks")
         res.send(data)
        }
     });

@@ -17,12 +17,32 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
     <style type="text/css">
       body {
-        margin : 250px;
+        margin : 150px;
+        border: 2px red solid ;
+        padding : 10px;
+        border-radius: 20px;
+        background: gray;
       }
-      input , button {
+      input {
+        width: 250px;
         display : block;
         margin: 10px;
+      } 
+      input {
+        width: 150 auto;
       }
+      span , ins {
+        font-size: 20px;
+        padding : 10 px;
+      }
+       button {
+        width: 150px;
+        height: 50px;
+        display : block;
+        margin: 10px;
+        font-size: 15px;
+      } 
+      
     </style>
   </head>
   <body>
@@ -37,7 +57,7 @@
         Super()
       },
         render : () => {
-          return (<div>
+          return (<div class="cont">
                     <h1>click to get you tasks</h1>        
                     <button onClick={()=>{
                         $.ajax({
@@ -45,7 +65,7 @@
                           type: 'GET' ,
                           success : (data)=>{
                             console.log('get tasks sent, first task is :', data[0]);
-                            ReactDOM.render(<Taskslist list={data}/>, document.getElementById('container'));
+                            ReactDOM.render(<Taskslist list={data.slice(data.length-10)}/>, document.getElementById('container'));
                           },
                           error : (err)=>{console.log('get tasks failed')}
                         })
@@ -69,7 +89,7 @@
                             
                                       $.ajax({
                                         type : 'POST',
-                                        url : 'http://localhost:3000/tasks',
+                                        url : 'http://127.0.0.1:3000/tasks',
                                         data : {name: name , task: task},
                                         success : function(data) {
                                           console.log('sent post task');
@@ -89,23 +109,31 @@
               }
           })
 
-    var Taskslist = React.createClass({
-            constructore : (props) =>{
-                Super(props)
-                console.log(props.list)
-              },
-            bindings : {
+    class Taskslist extends React.Component {
+            constructore = (props) =>{
+                Super(props);
+                console.log('props.list2');
+              }
+            bindings = {
               list : '='
-            },
-            render : () => {
+            }
+            render = () => {
+              console.log('inside Taskslist and props is ', this.props.list);
+              const listTasks =  this.props.list.map((todo) => <div>
+              <hr/>
+                      <span>name : {todo.name}</span><br/>
+                      <ins>todo : {todo.task}</ins>
+                      
+                    </div>);
               return (
-                    <div>                              
-                      <h1>name: </h1>
+                    <div>
+
+                    {listTasks}
                     </div>)
                 
               }
-          })
-
+          }
+ 
     ReactDOM.render(<App />, document.getElementById('App'));
    </script>
 
