@@ -4,6 +4,7 @@
   "description": "final project for junior phase ",
   "main": "index.js",
   "scripts": {
+    "build": "babel public/src -d lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "runDB": "node ./db/index.js"
